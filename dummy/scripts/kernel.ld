@@ -8,7 +8,7 @@
 
 OUTPUT_FORMAT(elf32-i386)       /* Output binary format */
 OUTPUT_ARCH("i386")             /* Output architecture */
-ENTRY(k_entry)                  /* Entry point name */
+ENTRY(kentry)                   /* Entry point name */
 
 /*
 PHDRS {
