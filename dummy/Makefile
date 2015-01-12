@@ -23,8 +23,8 @@ CFLAGS	+=	-m32 -W -Wall -ansi -pedantic
 AFLAGS	+=	-f elf32
 LDFLAGS	+=	-m elf_i386
 
-OBJ	=	$(CSRC:.c=.o) \
-		$(ASRC:.asm=.o)
+OBJ	=	$(ASRC:.asm=.o) \
+		$(CSRC:.c=.o)
 
 RM	=	rm -rf
 CLEAN	=	rm -rf `find . \( -name '*~' -or -name '.*~' -or -name '.\#*\#' -or -name '\#*\#' \)`
