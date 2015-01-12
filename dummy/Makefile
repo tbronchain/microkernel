@@ -23,21 +23,21 @@ CFLAGS	+=	-m32 -W -Wall -ansi -pedantic
 AFLAGS	+=	-f elf32
 LDFLAGS	+=	-m elf_i386
 
-COBJ	=	$(CSRC:.c=.o)
-AOBJ	=	$(ASRC:.asm=.o)
+OBJ	=	$(CSRC:.c=.o) \
+		$(ASRC:.asm=.o)
 
 RM	=	rm -rf
 CLEAN	=	rm -rf `find . \( -name '*~' -or -name '.*~' -or -name '.\#*\#' -or -name '\#*\#' \)`
 
 
-$(NAME):	$(COBJ) $(AOBJ)
-		$(LD) $(LDFLAGS) -T $(LDSRC) -o bin/$(NAME) $(COBJ) $(AOBJ)
+$(NAME):	$(OBJ)
+		$(LD) $(LDFLAGS) -T $(LDSRC) -o bin/$(NAME) $(OBJ)
 
 all:	$(NAME)
 
 clean:
 	$(CLEAN)
-	$(RM) $(COBJ) $(AOBJ)
+	$(RM) $(OBJ)
 
 fclean: clean
 	$(RM) bin/$(NAME)
