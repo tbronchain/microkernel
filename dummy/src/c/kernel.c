@@ -6,27 +6,27 @@
 **
 */
 
-// V MEM Default size
+/* V MEM Default size */
 #define COL 80
 #define ROW 25
 
-// Clear video memory
+/* Clear video memory */
 void    vclear() {
-  // Video memory starting point
+  /* Video memory starting point */
   char  *vptr = (char*)0xb8000;
-  // Incrementor
+  /* Incrementor */
   int   i = 0;
 
-  // Clear all
+  /* Clear all */
   while (i < COL*ROW*2) {
-    // Bit1 (ascii char): Blank char
+    /* Bit1 (ascii char): Blank char */
     vptr[i++] = ' ';
-    // Bit2 (`attribute-byte`): Light grey blink crusor
+    /* Bit2 (`attribute-byte`): Light grey blink crusor */
     vptr[i++] = 0x07;
   }
 }
 
-// Print text
+/* Print text */
 char    *printk(int color, char *str, char *vptr) {
   while (*str != '\0') {
     (*vptr)++ = (*str)++;
@@ -36,11 +36,11 @@ char    *printk(int color, char *str, char *vptr) {
 }
 
 void    kmain(void) {
-  // String to print
+  /* String to print */
   char  *str = "Hello World!\n";
-  // Video memory starting point
+  /* Video memory starting point */
   char  *vptr = (char*)0xb8000;
 
   vclear();
-  vptr = printk(0x10, str, vptr)
+  vptr = printk(0x10, str, vptr);
 }
