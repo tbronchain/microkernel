@@ -29,8 +29,8 @@ void    vclear() {
 /* Print text */
 char    *printk(int color, char *str, char *vptr) {
   while (*str != '\0') {
-    (*vptr)++ = (*str)++;
-    (*vptr)++ = color;
+    *vptr++ = *str++;
+    *vptr++ = color;
   }
   return (vptr);
 }
