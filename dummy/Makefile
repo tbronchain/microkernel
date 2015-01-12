@@ -46,7 +46,7 @@ re:	fclean all
 
 .c.o:
 	$(CC) $(CFLAGS) -c $< -o $@
-.asm.o:
+$(ADIR)/kernel.o: $(ADIR)/kernel.asm
 	$(AC) $(AFLAGS) $< -o $@
 
 .PHONY:	all clean fclean re $(NAME)
